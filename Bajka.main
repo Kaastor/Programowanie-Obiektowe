@@ -1,0 +1,32 @@
+// GeneratorBajek.cpp : Defines the entry point for the console application.
+//
+#include "Klasy.h"
+#include "stdafx.h"
+#include "iostream"
+#include <string>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "");
+
+	fstream plik1;
+	plik1.open("Narrator.txt"); 
+	string TabPlik1[200];
+	string linia;
+	int i=0;
+	while (getline(plik1, linia))
+	{
+		TabPlik1[i] = linia;
+		i++;
+	} 
+
+	plik1.close();
+
+	Narrator Narrator1;
+	Narrator1.opowiadanie(TabPlik1);
+
+	return 0;
+}
+
